@@ -1,0 +1,28 @@
+minimum_cumulusci_version: '3.88.0'
+project:
+    name: plm
+    package:
+        name: plm
+        api_version: '60.0'
+    git:
+        default_branch: 'main'
+        prefix_feature: 'feature/'
+        prefix_beta: 'beta/'
+        prefix_release: 'release/'
+    source_format: sfdx
+
+tasks:
+    robot:
+        options:
+            suites: robot/plm/tests
+            options:
+                outputdir: robot/plm/results
+
+    robot_testdoc:
+        options:
+            path: robot/plm/tests
+            output: robot/plm/doc/plm_tests.html
+
+    run_tests:
+        options:
+            required_org_code_coverage_percent: 75
